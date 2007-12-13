@@ -6,7 +6,7 @@
 
 Summary:	.NET library for using D-BUS message bus (Glib integration)
 Summary(pl.UTF-8):	Biblioteka .NET do używania magistrali przesyłania komunikatów D-BUS
-Name:		dbus-ndesk-dbus-glib-sharp
+Name:		dotnet-ndesk-dbus-glib-sharp
 Version:	0.4.1
 Release:	1
 License:	MIT
@@ -18,6 +18,7 @@ BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	dotnet-ndesk-dbus-sharp
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
+Obsoletes:	ndesk-dbus-glib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
