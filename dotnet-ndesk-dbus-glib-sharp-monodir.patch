@@ -1,0 +1,22 @@
+diff -Nur ndesk-dbus-glib-0.4.1/src/Makefile.am ndesk-dbus-glib-0.4.1.new/src/Makefile.am
+--- ndesk-dbus-glib-0.4.1/src/Makefile.am	2007-10-16 11:47:13.000000000 +0100
++++ ndesk-dbus-glib-0.4.1.new/src/Makefile.am	2007-12-13 20:54:56.000000000 +0000
+@@ -18,14 +18,14 @@
+ 
+ install-data-local:
+ 	@if test -n '$(TARGET)'; then                       \
+-          echo "$(GACUTIL) /i $(TARGET) /f /gacdir $(DESTDIR)$(libdir)";    \
+-          $(GACUTIL) /i $(TARGET) /package $(PACKAGE)-$(API_VERSION) /f /gacdir $(libdir) /root $(DESTDIR)$(libdir) || exit 1; \
++          echo "$(GACUTIL) /i $(TARGET) /f /gacdir $(DESTDIR)$(prefix)/lib";    \
++          $(GACUTIL) /i $(TARGET) /package $(PACKAGE)-$(API_VERSION) /f /gacdir $(libdir) /root $(DESTDIR)$(prefix)/lib || exit 1; \
+         fi
+ 
+ uninstall-local:
+ 	@if test -n '$(TARGET)'; then                       \
+-          echo "$(GACUTIL) /u $(ASSEMBLY) /gacdir $(DESTDIR)$(libdir)";  \
+-          $(GACUTIL) /u $(ASSEMBLY) /package $(PACKAGE)-$(API_VERSION) /gacdir $(libdir) /root $(DESTDIR)$(libdir) || exit 1;   \
++          echo "$(GACUTIL) /u $(ASSEMBLY) /gacdir $(DESTDIR)$(prefix)/lib";  \
++          $(GACUTIL) /u $(ASSEMBLY) /package $(PACKAGE)-$(API_VERSION) /gacdir $(libdir) /root $(DESTDIR)$(prefix)/lib || exit 1;   \
+         fi
+ 
+ EXTRA_DIST = \
