@@ -1,11 +1,8 @@
-#
 %include	/usr/lib/rpm/macros.mono
-#
+%define	module	ndesk-dbus-glib
 
-%define module ndesk-dbus-glib
-
-Summary:	.NET library for using D-BUS message bus (Glib integration)
-Summary(pl.UTF-8):	Biblioteka .NET do używania magistrali przesyłania komunikatów D-BUS
+Summary:	.NET library for using D-BUS message bus (GLib integration)
+Summary(pl.UTF-8):	Biblioteka .NET do używania magistrali przesyłania komunikatów D-BUS z GLib
 Name:		dotnet-ndesk-dbus-glib-sharp
 Version:	0.4.1
 Release:	2
@@ -25,10 +22,10 @@ Obsoletes:	ndesk-dbus-glib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-.NET library for using D-BUS (glib integration).
+.NET library for using D-BUS (GLib integration).
 
 %description -l pl.UTF-8
-Biblioteka .NET do używania D-BUS.
+Biblioteka .NET do używania D-BUS wraz z GLib.
 
 %prep
 %setup -q -n %{module}-%{version}
