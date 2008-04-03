@@ -20,12 +20,14 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	rpmbuild(monoautodeps)
 # DllImport, not detected by monoautodeps
-%ifarch %{x8664} ia64 ppc64 s390x sparc64
+%ifarch %{x8664} ia64 ppc64 s390x
 Requires:	libglib-2.0.so.0()(64bit)
 %else
 Requires:	libglib-2.0.so.0
 %endif
 Obsoletes:	ndesk-dbus-glib
+ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x sparc
+ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
