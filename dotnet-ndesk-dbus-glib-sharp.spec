@@ -1,14 +1,14 @@
 %include	/usr/lib/rpm/macros.mono
 %define	module	ndesk-dbus-glib
 
-Summary:	.NET library for using D-BUS message bus (GLib integration)
-Summary(pl.UTF-8):	Biblioteka .NET do używania magistrali przesyłania komunikatów D-BUS z GLib
+Summary:	.NET library for using D-Bus message bus (GLib integration)
+Summary(pl.UTF-8):	Biblioteka .NET do używania magistrali przesyłania komunikatów D-Bus z GLib
 Name:		dotnet-ndesk-dbus-glib-sharp
 Version:	0.4.1
 Release:	3
 License:	MIT
 Group:		Libraries
-Source0:	http://www.ndesk.org/archive/dbus-sharp/%{module}-%{version}.tar.gz
+Source0:	http://www.ndesk.org/archive/ndesk-dbus/%{module}-%{version}.tar.gz
 # Source0-md5:	7faf8770b214956fa9de009def550826
 Patch0:		%{name}-monodir.patch
 URL:		http://www.ndesk.org/DBusSharp
@@ -19,39 +19,42 @@ BuildRequires:	dotnet-ndesk-dbus-sharp-devel >= 0.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	rpmbuild(monoautodeps)
+Requires:	dotnet-ndesk-dbus-sharp >= 0.4
 # DllImport, not detected by monoautodeps
 %ifarch %{x8664} ia64 ppc64 s390x
 Requires:	libglib-2.0.so.0()(64bit)
 %else
 Requires:	libglib-2.0.so.0
 %endif
+Requires:	mono >= 1.1.13
 Obsoletes:	ndesk-dbus-glib
 ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x sparc sparcv9
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-.NET library for using D-BUS with GLib.
+.NET library for using D-Bus with GLib.
 
 This code provides GLib main loop integration for Managed D-Bus.
 
 %description -l pl.UTF-8
-Biblioteka .NET do używania D-BUS wraz z GLib.
+Biblioteka .NET do używania D-Bus wraz z GLib.
 
 Ten kod udostępnia integrację głównej pętli GLib z Managed D-Bus.
 
 %package devel
-Summary:	Development files for ndesk D-BUS GLib .NET library
-Summary(pl.UTF-8):	Pliki programistyczne biblioteki .NET ndesk D-BUS GLib
+Summary:	Development files for ndesk D-Bus GLib .NET library
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki .NET ndesk D-Bus GLib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dotnet-ndesk-dbus-sharp-devel >= 0.4
+Requires:	mono-devel >= 1.1.13
 
 %description devel
-Development files for ndesk D-BUS GLib .NET library.
+Development files for ndesk D-Bus GLib .NET library.
 
 %description devel -l pl.UTF-8
-Pliki programistyczne biblioteki .NET ndesk D-BUS GLib.
+Pliki programistyczne biblioteki .NET ndesk D-Bus GLib.
 
 %prep
 %setup -q -n %{module}-%{version}
