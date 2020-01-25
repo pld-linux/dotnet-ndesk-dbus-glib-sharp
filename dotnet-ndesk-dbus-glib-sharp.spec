@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.mono
 %define	module	ndesk-dbus-glib
 
 Summary:	.NET library for using D-Bus message bus (GLib integration)
